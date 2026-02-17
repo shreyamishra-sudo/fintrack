@@ -12,3 +12,8 @@ app.include_router(auth.router)
 @app.get("/")
 def root():
     return {"message": "FinTrack backend running"}
+
+from app.api.routes import categories
+
+app.include_router(categories.router)
+
