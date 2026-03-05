@@ -11,8 +11,9 @@ function Register() {
     try {
       await registerUser(email, password);
       alert("Registration successful");
-    } catch {
-      alert("Registration failed");
+    } catch (error) {
+      console.log(error.response?.data);
+      alert(error.response?.data?.detail || "Registration failed");
     }
   };
 
@@ -41,6 +42,7 @@ function Register() {
         />
 
         <button
+          type="submit"
           className="w-full bg-green-600 text-white p-2 rounded"
         >
           Register
