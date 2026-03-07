@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { loginUser } from "../services/authService";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+
+  const navigate = useNavigate();   
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,9 +17,10 @@ function Login() {
 
       localStorage.setItem("token", data.access_token);
 
-      alert("Login successful!");
-    // eslint-disable-next-line no-unused-vars
+      navigate("/dashboard");
+
     } catch (error) {
+      console.error(error);
       alert("Login failed");
     }
   };
@@ -45,6 +50,7 @@ function Login() {
         />
 
         <button
+          type="submit"
           className="w-full bg-blue-600 text-white p-2 rounded"
         >
           Login
