@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 function Dashboard() {
 
   const handleLogout = () => {
@@ -8,14 +10,17 @@ function Dashboard() {
   return (
     <div className="min-h-screen bg-gray-100 flex">
 
+      {/* Sidebar */}
       <div className="w-64 bg-blue-600 text-white p-5">
         <h1 className="text-2xl font-bold mb-6">FinTrack</h1>
 
         <ul className="space-y-3">
-          <li className="hover:underline cursor-pointer">Dashboard</li>
-          <li className="hover:underline cursor-pointer">Categories</li>
-          <li className="hover:underline cursor-pointer">Expenses</li>
-          <li className="hover:underline cursor-pointer">Budgets</li>
+          <li>
+            <Link to="/dashboard" className="hover:underline">Dashboard</Link>
+          </li>
+          <li>
+            <Link to="/categories" className="hover:underline">Categories</Link>
+          </li>
         </ul>
       </div>
 
@@ -29,7 +34,6 @@ function Dashboard() {
         >
           Logout
         </button>
-
       </div>
 
     </div>
